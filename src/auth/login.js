@@ -18,7 +18,7 @@ export const login = async (req, res) => {
       if (email === user.email && isPasswordMatch && user.is_verified) {
         const token = jwt.sign(user, secret);
 
-        res.json({ token: token });
+        res.json({ token: token, status: 200, isAdmin: user.is_admin });
       } else res.status(401).send({ message: "Authentication failed." });
     } else {
       res.status(401).json({ message: "Authentication failed." });

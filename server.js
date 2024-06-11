@@ -5,6 +5,7 @@ import { port } from "./config.js";
 import { AuthRouter } from "./src/auth/router.js";
 import { OrderRouter } from "./src/orders/router.js";
 import authMiddleware, { authorized } from "./src/auth/middleware.js";
+import { UserRouter } from "./src/users/router.js";
 
 const app = express();
 
@@ -14,4 +15,6 @@ app.use(authMiddleware);
 app.use(authorized);
 app.use("/auth", AuthRouter);
 app.use("/orders", OrderRouter);
+app.use("/users", UserRouter);
+
 app.listen(port, () => console.log("server up on port :" + port));

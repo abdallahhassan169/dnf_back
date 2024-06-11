@@ -2,7 +2,7 @@
 import jwt from "jsonwebtoken";
 import { secret } from "../../config.js";
 const public_urls = ["/auth/login", "/auth/register", "/auth/verify"];
-const user_urls = ["/orders/make_order"];
+const user_urls = ["/orders/make_order", "/users/get_user_data"];
 const authMiddleware = (req, res, next) => {
   const token = req.headers.authorization;
   const route = req.path;
